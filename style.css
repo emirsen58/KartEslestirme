@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23d5ab, #23a6d5);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.controls {
+  margin: 15px 0;
+}
+
+.stats {
+  margin-bottom: 15px;
+}
+
+.board {
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+  align-content: center;
+  margin: 20px auto;
+  box-sizing: border-box;
+  max-width: 90vw;
+  max-height: 90vw;
+}
+
+@media (max-width: 480px) {
+  .board {
+    width: 90vw;
+    height: 90vw;
+    gap: 3px;
+  }
+  .card {
+    width: calc(90vw / var(--level));
+    height: calc(90vw / var(--level));
+    font-size: calc(90vw / var(--level) / 2);
+  }
+}
+
+.card {
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  background-color: #444;
+  color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.card.flipped,
+.card.matched {
+  background-color: rgb(14, 21, 112);
+  color: black;
+  cursor: default;
+}
+
+.card.dummy {
+  background-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
